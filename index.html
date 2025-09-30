@@ -3,57 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>手然台 - 介紹</title>
+    <title>手然台</title>
     <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #181818;
-            color: #fff;
             display: flex;
             flex-direction: column;
             height: 100vh;
-            justify-content: center;
-            align-items: center;
+            background-color: #181818;
+            color: #fff;
+        }
+        .top-bar {
+            background-color: #1e1e1e; /* Updated color */
+            color: #ffffff;
             text-align: center;
+            padding: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #282828;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            padding: 10px; /* Add padding for space around frames */
+            gap: 10px; /* Gap between stream and chat */
         }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        .stream, .chat {
+            border-radius: 15px; /* Rounded corners */
+            overflow: hidden; /* Ensure inner content doesn't overflow */
         }
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
+        .stream {
+            flex: 3; /* 3 parts */
+            background-color: #000;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
         }
-        a {
-            text-decoration: none;
-            color: #1e90ff;
-            font-size: 20px;
-            padding: 10px 20px;
-            background-color: #444;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        .chat {
+            flex: 1; /* 1 part */
+            background-color: #2a2a2a;
+            max-height: 100vh; /* Set max height for chat */
+            overflow: hidden; /* Hide overflow from the chat container */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
         }
-        a:hover {
-            background-color: #555;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .chat iframe {
+            height: 100%; /* Ensure iframe takes full height of chat box */
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                gap: 0; /* Remove gap in mobile view */
+            }
+            .stream, .chat {
+                flex: 1;
+                border: none; /* Remove border for mobile view */
+            }
+            .chat {
+                border-top: 2px solid #444; /* Top border for chat in mobile view */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>歡迎來到手然台</h1>
-        <p>
-            手然台是一個提供直播和聊天的平臺，讓您可以與朋友和觀眾互動。
-            在這裡，您可以享受精彩的內容並參與實時聊天。
-        </p>
-        <a href="main.html">開始觀看直播</a>
+    <div class="top-bar">
+        手然台
+    </div>
+    <div class="content">
+        <div class="stream">
+            <iframe src="https://player.kick.com/yinlove" allowfullscreen></iframe>
+        </div>
+        <div class="chat">
+            <iframe src="https://www.twitch.tv/embed/yinlove/chat?darkpopout&parent=eric6638.github.io" allowfullscreen></iframe>
+        </div>
     </div>
 </body>
 </html>
