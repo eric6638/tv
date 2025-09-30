@@ -15,7 +15,7 @@
             color: #fff;
         }
         .top-bar {
-            background-color: #282828;
+            background-color: #1e1e1e; /* Updated color */
             color: #ffffff;
             text-align: center;
             padding: 15px;
@@ -28,21 +28,21 @@
             flex: 1;
             overflow: hidden;
             padding: 10px; /* Add padding for space around frames */
+            gap: 10px; /* Gap between stream and chat */
         }
         .stream, .chat {
             border-radius: 15px; /* Rounded corners */
             overflow: hidden; /* Ensure inner content doesn't overflow */
         }
         .stream {
-            flex: 2;
+            flex: 3; /* 3 parts */
             background-color: #000;
             position: relative;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
         }
         .chat {
-            flex: 1;
+            flex: 1; /* 1 part */
             background-color: #2a2a2a;
-            border-left: 2px solid #444;
             overflow-y: auto;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
         }
@@ -54,6 +54,7 @@
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
+                gap: 0; /* Remove gap in mobile view */
             }
             .stream, .chat {
                 flex: 1;
@@ -71,13 +72,11 @@
     </div>
     <div class="content">
         <div class="stream">
-            <iframe src="https://player.kick.com/fissure_dota_en2" allowfullscreen></iframe>
+            <iframe src="https://player.kick.com/yinlove" allowfullscreen></iframe>
         </div>
         <div class="chat">
-            <iframe src="https://www.twitch.tv/embed/yinlove/chat?parent=eric6638.github.io" allowfullscreen></iframe>
+            <iframe src="https://www.twitch.tv/embed/yinlove/chat?darkpopout&parent=eric6638.github.io" allowfullscreen></iframe>
         </div>
     </div>
 </body>
 </html>
-
-
