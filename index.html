@@ -35,7 +35,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-            font-size: 18px; /* Increased font size from previous default */
+            font-size: 18px; /* Increased font size */
         }
         .top-bar button:hover {
             background-color: rgba(255, 255, 255, 0.2);
@@ -95,14 +95,14 @@
         <button onclick="loadTwitch()">打機台</button>
         <button onclick="loadKick()">播劇台</button>
         <button id="toggleChat" onclick="toggleChat()">隱藏聊天</button>
-        <button id="modeSwitch" onclick="toggleMode()">切換模式</button>
+        <button id="modeSwitch" onclick="toggleMode()">白色模式</button> <!-- Updated initial text -->
     </div>
     <div class="content" id="contentContainer">
         <div class="stream" id="streamContainer">
             <iframe id="stream-iframe" src="https://player.twitch.tv/?channel=yinlove&parent=eric6638.github.io" allowfullscreen></iframe>
         </div>
         <div class="chat" id="chatContainer">
-            <iframe src="https://www.twitch.tv/embed/yinlove/chat?darkpopout&parent=eric6638.github.io" allowfullscreen></iframe>
+            <iframe id="chat-iframe" src="https://www.twitch.tv/embed/yinlove/chat?darkpopout&parent=eric6638.github.io" allowfullscreen></iframe>
         </div>
     </div>
     <script>
@@ -137,6 +137,14 @@
             buttons.forEach(button => {
                 button.style.color = darkMode ? '#ffffff' : '#000000'; // Button text color
             });
+
+            // Update button text for mode
+            document.getElementById('modeSwitch').textContent = darkMode ? '白色模式' : '黑色模式'; // Update mode button text
+
+            // Change chat iframe source based on mode
+            document.getElementById('chat-iframe').src = darkMode 
+                ? "https://www.twitch.tv/embed/yinlove/chat?darkpopout&parent=eric6638.github.io" 
+                : "https://www.twitch.tv/embed/yinlove/chat?parent=eric6638.github.io"; // Update chat iframe src
         }
     </script>
 </body>
